@@ -1,0 +1,16 @@
+name: Testing GitHub Workflows
+
+on:
+  push:
+
+jobs:
+  init:
+    name: Initialize Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say Hello
+        run: echo "Hello Moussa"
+
+      - name: Show Hostname
+        run: echo "$HOSTNAME"
