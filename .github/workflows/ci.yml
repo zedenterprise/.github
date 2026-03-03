@@ -1,16 +1,44 @@
-name: Testing GitHub Workflows
+name: Demonstration CI
 
 on:
   push:
+    branches:
+      - main
+      - master
 
 jobs:
-  init:
-    name: Initialize Job
+  ci-pipeline:
+    name: CI Pipeline Job
     runs-on: ubuntu-latest
 
     steps:
-      - name: Say Hello
-        run: echo "Hello Moussa"
+      # Étape 1 - Initialisation
+      - name: Étape 1 - Initialisation
+        run: echo "Initialisation du pipeline..."
 
-      - name: Show Hostname
-        run: echo "$HOSTNAME"
+      # Étape 2 - Récupération du code
+      - name: Étape 2 - Récupération du code
+        uses: actions/checkout@v4
+
+      # Étape 3 - Build
+      - name: Étape 3 - Build
+        run: |
+          echo "Build de l'application..."
+          echo "Compilation en cours..."
+
+      # Étape 4 - Tests
+      - name: Étape 4 - Tests
+        run: |
+          echo "Execution des tests..."
+          echo "Tous les tests sont OK ✅"
+
+      # Étape 5 - Packaging
+      - name: Étape 5 - Packaging
+        run: |
+          echo "Creation du package..."
+          mkdir build
+          echo "Fichier de production" > build/app.txt
+
+      # Étape 6 - Fin du pipeline
+      - name: Étape 6 - Fin du pipeline
+        run: echo "Pipeline termine avec succes 🎉"
